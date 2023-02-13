@@ -1,6 +1,7 @@
 from view import greeting, goodbye, show_menu, get_note_id, get_note_text, get_date, show_in_console
 from database import create, get_notes_list, get_note, update_note, delete_note
 
+
 def create_new_note():
     try:
         title, text = get_note_text()
@@ -9,12 +10,14 @@ def create_new_note():
     except:
         print('При создании заметки произошла ошибка')
 
+
 def read_all_notes():
     try:
         all_notes = get_notes_list()
         show_in_console(all_notes)
     except:
         print('При выгрузке данных произошла ошибка')
+
 
 def read_all_notes_by_date():
     try:
@@ -27,14 +30,16 @@ def read_all_notes_by_date():
     except:
         print('При выгрузке данных произошла ошибка')
 
+
 def find_note_by_id():
     try:
         id = get_note_id()
-        note = get_note_id(id)
+        note = get_note(id)
         if note:
             show_in_console(note)
     except:
         print('При поиске заметки произошла ошибка')
+
 
 def edit_note():
     try:
@@ -45,12 +50,15 @@ def edit_note():
     except:
         print('При редактировании заметки произошла ошибка')
 
+
 def delete_note_by_id():
     try:
         id = get_note_id()
         delete_note(id)
     except:
         print('При удалении заметки произошла ошибка')
+
+
 
 COMMANDS_LIST = {
     '1': create_new_note,
@@ -60,6 +68,7 @@ COMMANDS_LIST = {
     '5': edit_note,
     '6': delete_note_by_id,
 }
+
 
 def start():
     greeting()
